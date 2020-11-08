@@ -1,0 +1,13 @@
+.idea
+# .secrets*
+*.pyc
+.DS_STORE
+.__pycache__
+__pycache__
+*.pem
+*.aes
+# *.secret
+node_modules
+dist/
+.env
+temp/*.json
