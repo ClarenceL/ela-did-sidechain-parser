@@ -1317,6 +1317,11 @@ json-parse-even-better-errors@^2.3.0:
   resolved "https://registry.yarnpkg.com/json-parse-even-better-errors/-/json-parse-even-better-errors-2.3.1.tgz#7c47805a94319928e05777405dc12e1f7a4ee02d"
   integrity sha512-xyFwyhro/JEof6Ghe2iz2NcXoj2sloNsWr/XsERDK/oiPCfaNhl5ONfp+jQdAZRQQ0IJWNzH9zIZF7li91kh2w==
 
+jwt-decode@^3.1.1:
+  version "3.1.1"
+  resolved "https://registry.yarnpkg.com/jwt-decode/-/jwt-decode-3.1.1.tgz#526710779567c380910139f790da2910c529e49f"
+  integrity sha512-EaH9dTD9ogCmxZRdiTsIUIJslqjoFfk8nEAi+Bq8u/aUjrVuhZ6eZjhWRH6SC9NBA0Lwr3K35H2zDnWvK/n4vQ==
+
 kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
   version "3.2.2"
   resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"

@@ -6,8 +6,8 @@ export interface Transaction {
   index: number
   type: string
   type_description: string
-  did: string,
-  did_specification: string,
+  did: string
+  did_specification: string
   operation_type: string
   inputs: Array<Input>
   lock_time: number

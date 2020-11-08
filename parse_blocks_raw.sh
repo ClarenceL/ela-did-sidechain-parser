@@ -24,4 +24,4 @@ ALL_BLOCKS=$(printf ",%s" "${BLOCKS[@]}")
 ALL_BLOCKS=${ALL_BLOCKS:1}
 
 # we are wrapping the objects with [ ] and piping to jq
-echo "[$ALL_BLOCKS]" | jq '.'
+echo "[$ALL_BLOCKS]" | jq '.' >> "./raw_dump/$BLOCK_NUM.json"

@@ -1,11 +1,12 @@
 import BigNumber from 'bignumber.js'
-import {Transaction} from './transaction'
+import { Transaction } from './transaction'
+import jwt_decode from "jwt-decode";
 
 const typeDesc = {
   '00': 'Coinbase',
   '02': 'TransferAsset',
   '09': 'RegisterIdentification',
-  '0a': 'RegisterDID'
+  '0a': 'RegisterDID',
 }
 
 export interface Block {
@@ -36,7 +37,6 @@ export interface Block {
 }
 
 export default class ElaDIDBlock implements Block {
-
   // raw fields - not outputted
   tx: Array<any>
   time_ms: number
@@ -72,7 +72,7 @@ export default class ElaDIDBlock implements Block {
    * Only direct assignments from block to the private variables here
    * @param block
    */
-  constructor(block){
+  constructor(block) {
     this.hash = block.hash
     this.confirmations = block.confirmations
     this.size = block.size
@@ -95,10 +95,9 @@ export default class ElaDIDBlock implements Block {
     this.auxpow = block.auxpow
 
     this.init()
-
   }
 
-  init(){
+  init() {
     this.hash_as_number = new BigNumber(this.hash, 16).toFixed()
     this.time = new Date(this.time_ms).toISOString()
     this.median_time = new Date(this.median_time_ms).toISOString()
@@ -123,7 +122,7 @@ export default class ElaDIDBlock implements Block {
    *
    * TODO: could use a bit of cleanup
    */
-  async output(): Promise<Block>{
+  async output(): Promise<Block> {
     // process transactions
     for (
       let transactionIndex = 0;
@@ -147,13 +146,18 @@ export default class ElaDIDBlock implements Block {
         index: transactionIndex,
         type: type,
         type_description: typeDescription,
-        operation_type: (t.payload && t.payload.header) ? t.payload.header.operation : '',
-        did_specification: (t.payload && t.payload.header) ? t.payload.header.specification : '',
-        did: (t.payload && t.payload.proof) ? t.payload.proof.verificationMethod.split('#')[0] : '',
+        operation_type:
+          t.payload && t.payload.header ? t.payload.header.operation : '',
+        did_specification:
+          t.payload && t.payload.header ? t.payload.header.specification : '',
+        did:
+          t.payload && t.payload.proof
+            ? t.payload.proof.verificationMethod.split('#')[0]
+            : '',
         size: t.size,
         version: t.version,
         payload_version: t.payloadversion,
-        payload: t.payload ? t.payload.payload : '',
+        payload: (t.payload && t.payload.payload) ? jwt_decode(t.payload.payload, {header: true}) : '',
         lock_time: t.locktime,
         time: new Date(this.time).toISOString(),
 
