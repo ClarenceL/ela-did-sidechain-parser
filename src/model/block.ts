@@ -1,6 +1,6 @@
 import BigNumber from 'bignumber.js'
 import { Transaction } from './transaction'
-import jwt_decode from "jwt-decode";
+import jwt_decode from 'jwt-decode'
 
 const typeDesc = {
   '00': 'Coinbase',
@@ -157,7 +157,10 @@ export default class ElaDIDBlock implements Block {
         size: t.size,
         version: t.version,
         payload_version: t.payloadversion,
-        payload: (t.payload && t.payload.payload) ? jwt_decode(t.payload.payload, {header: true}) : '',
+        payload:
+          t.payload && t.payload.payload
+            ? jwt_decode(t.payload.payload, { header: true })
+            : '',
         lock_time: t.locktime,
         time: new Date(this.time).toISOString(),
 

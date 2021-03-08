@@ -6,7 +6,7 @@ Elastos and FCAS Encompasses 3 Parsers
 
 1. Elastos Mainchain - UTXO-based - https://blockchain.elastos.org
 2. Elastos ETH Sidechain - EVM (Account-based) - https://explorer.elaeth.io
-3. Elastis DID Sidechain - JSON-based - https://idchain.elastos.org
+3. Elastos DID Sidechain - JSON-based - https://idchain.elastos.org
 
 ### Running Directly
 
@@ -19,26 +19,20 @@ You can run the parsers without docker, this is a NodeJS based parser:
     `npm run tsc`
 4. This also requires **jq** - a lightweight and flexible command-line JSON processor.
     `sudo apt-get install jq` - https://stedolan.github.io/jq
-5. Ensure the `.env` file is in the root directory with entries for ELASTOS_RPC, ELASTOS_RPC_PORT
-6. Your IP needs to be whitelisted by whichever Elastos RPC node you are connecting to, ensure its `config.json` 
+5. Ensure the `.env` file is in the root directory with an entry for ELASTOS_DID_RPC
+6. Your IP needs to be whitelisted by whichever Elastos DID RPC node you are connecting to, ensure its `config.json` 
     has `EnableRPC` set to true and your IP whitelisted, e.g:
     ```json
     {
-      "Configuration": {
-        "DPoSConfiguration": {
-          "EnableArbiter": true,
-          "IPAddress": "[YOUR NODE IP]"
-        },
-        "PrintLevel":1,
-        "HttpInfoStart": true,
-        "EnableRPC": true,
-        "RpcConfiguration": {
-          "WhiteIPList": [
-            "127.0.0.1",
-            "[YOUR IP]"
-          ]
-        }
-      }
+      "SPVDisableDNS": false,
+      "SPVPermanentPeers": [
+        "localhost:20338"
+      ],
+      "EnableRPC": true,
+      "RPCWhiteList": [
+        "127.0.0.1",
+        "[YOUR IP]"
+      ]
     }
     ```   
 

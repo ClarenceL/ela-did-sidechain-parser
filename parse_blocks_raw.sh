@@ -17,7 +17,7 @@ do
 done
 
 # debug length
-# echo "${#BLOCKS[@]}"
+echo "${#BLOCKS[@]}"
 
 # join array on ,
 ALL_BLOCKS=$(printf ",%s" "${BLOCKS[@]}")

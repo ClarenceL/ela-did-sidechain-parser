@@ -11,5 +11,5 @@
 export $(grep -v '^#' .env | xargs)
 
 # requires jq: "sudo apt-get install jq"
-curl -s -H 'Content-Type: application/json' -H 'Accept:application/json' --data '{"method":"getcurrentheight"}' http://$ELASTOS_DID_RPC:$ELASTOS_DID_RPC_PORT | jq -M 'del(.error, .id, .jsonrpc) | {height: .result}'
+curl -s -H 'Content-Type: application/json' -H 'Accept:application/json' --data '{"method":"getcurrentheight"}' http://$ELASTOS_DID_RPC | jq -M 'del(.error, .id, .jsonrpc) | {height: .result}'
 
