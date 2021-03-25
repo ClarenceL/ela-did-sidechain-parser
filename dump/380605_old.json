@@ -1,7 +1,7 @@
 [
   {
     "hash": "b412b97c632f6a53cd3c02e3d2bc476710b71c843b1b96362dad8689f41e9eec",
-    "confirmations": 102193,
+    "confirmations": 94784,
     "size": 18568,
     "height": 380605,
     "weight": 74272,
@@ -11,8 +11,8 @@
     "version_hex": "00000000",
     "difficulty": "0",
     "merkle_root": "5ce9147177374fb09c4d243192919728b656a6d096a4fd662cf6771d227bdd4e",
-    "chain_work": "00018f30",
-    "chain_work_as_number": 102192,
+    "chain_work": "0001723f",
+    "chain_work_as_number": 94783,
     "next_block_hash": "ba5311bf796158c3cf84da7b0646ff0839bb9128c128d68ffa3a7bf66f4e58f4",
     "next_block_hash_as_number": "84276960634684696419231836751547228859597677720391858173732515360901503539444",
     "prev_block_hash": "f9b358eccf57c04b3db9bee7254bc24d5f053b1eaf206c31e4978571f9fe4884",

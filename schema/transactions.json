@@ -1,0 +1,125 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "array",
+  "items": {
+    "required": [
+      "hash",
+      "hash_as_number",
+      "id",
+      "id_as_number",
+      "index",
+      "type",
+      "type_description",
+      "inputs",
+      "lock_time",
+      "time",
+      "version"
+    ],
+    "properties": {
+      "hash": {
+        "type": "string",
+        "description": "The transaction hash."
+      },
+      "hash_as_number": {
+        "type": "string",
+        "description": "Integer representation of the tx hash."
+      },
+      "id": {
+        "type": "string",
+        "description": "The transaction's TXID encoded as hex in RPC byte order - txid"
+      },
+      "id_as_number": {
+        "type": "string",
+        "description": "Integer representation of a tx id."
+      },
+      "index": {
+        "type": "integer",
+        "description": "Index of the transaction in the block."
+      },
+      "type": {
+        "type": "string",
+        "description": "The Elastos transaction type, encoded as hex. Defined as follows (as hex) 0x00 = CoinBase, 0x01 = RegisterAsset, 0x02 = TransferAsset, 0x0a = RegisterDID"
+      },
+      "type_description": {
+        "type": "string",
+        "description": "The description of the type"
+      },
+      "operation_type": {
+        "type": "string",
+        "description": "Type of operation: create, update"
+      },
+      "did_specification": {
+        "type": "string",
+        "description": "Version/specification of DID, current 1.0 [elastos/did/1.0]"
+      },
+      "did": {
+        "type": "string",
+        "description": "The actual DID starting with did:elastos:[hex]"
+      },
+      "inputs": {
+        "$ref": "inputs.json"
+      },
+      "lock_time": {
+        "type": "integer",
+        "description": "The block number or timestamp at which this transaction is unlocked. If all TxIn inputs have final (0xffffffff) sequence numbers then lock_time is irrelevant. Otherwise, the transaction may not be added to a block until after lock_time. 0 = Not Locked, < 500000000 = Block number at which this transaction is unlocked, >= 500000000 = UNIX timestamp at which this transaction is unlocked. See: https://bitcoin.org/en/developer-guide#locktime_parsing_rules"
+      },
+      "outputs": {
+        "type": "array",
+        "items": {
+          "$ref": "output.json"
+        }
+      },
+      "size": {
+        "type": "integer",
+        "description": "The serialized transaction size (see: https://bitcoin.org/en/glossary/serialized-transaction)."
+      },
+      "time": {
+        "type": "string",
+        "description": "Time of the tx (block time) - YYYY-MM-DDTHH:MM:SS"
+      },
+      "version": {
+        "type": "integer",
+        "description": "Transaction data format version (note, this is signed)."
+      },
+      "payload_version": {
+        "type": "integer",
+        "description": "Type of payload data"
+      },
+      "payload": {
+        "$ref": "payload.json",
+        "description": "Multi-use struct, usually used for DID content"
+      },
+      "attributes": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "usage": {
+              "type": "integer",
+              "description": "Attribute type as an integer, this defines the type of data in the 'Data' field. 0x00 = Nonce, 0x20 = Script, 0x81 = Memo, 0x90 = Description, 0x91 = Description URL, 0x92 = Confirmationss"
+            },
+            "data": {
+              "type": "string",
+              "description": "Hex encoded attribute data"
+            }
+          }
+        }
+      },
+      "programs": {
+        "type": "array",
+        "items": {
+          "properties": {
+            "code": {
+              "type": "string",
+              "description": "Hex encoded program code, this is similar to Bitcoin's scriptPubKey"
+            },
+            "parameter": {
+              "type": "string",
+              "description": "Hex encoded program parameters to the code"
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": [
+    "array",
+    "null"
+  ],
+  "title": "Outputs Schema",
+  "items": {
+    "required": [
+      "index",
+      "value",
+      "value_denomination"
+    ],
+    "properties": {
+      "address": {
+        "type": "string",
+        "description": "ELA address"
+      },
+      "index": {
+        "type": "integer",
+        "description": "The output index number of this output within this transaction."
+      },
+      "asset_id": {
+        "type": "string",
+        "description": "Uint256 - records the asset ID"
+      },
+      "type": {
+        "type": "integer",
+        "description": "Not used, always 0"
+      },
+      "type_id": {
+        "type": "integer",
+        "description": "Internal Flipside generated mapping of the type to an integer id."
+      },
+      "value": {
+        "type": "integer",
+        "description": "Fixed64 - The quantity of value paid to this output. May be 0."
+      },
+      "value_denomination": {
+        "type": "string",
+        "description": "The denomination of the value. Default is 'ELA'"
+      },
+      "output_lock": {
+        "type": "integer",
+        "description": "Uint32 - Used to record the lock time of this output, represented as the block height"
+      },
+      "payload": {
+        "type": "object",
+        "description": "additional content info for the output"
+      }
+    }
+  }
+}

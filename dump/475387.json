@@ -1,6 +1,8 @@
+[]
+[]
 [ { hash:
      'c89625ce39e592dd2200755ab444866b1b9fbea8e6edc0993bddf60d27810080',
-    confirmations: 2,
+    confirmations: 7408,
     strippedsize: 1469,
     size: 1469,
     weight: 5876,
@@ -15,7 +17,7 @@
     nonce: 0,
     bits: 545259519,
     difficulty: '0',
-    chainwork: '00000001',
+    chainwork: '00001cef',
     previousblockhash:
      '9390b4595266d333ba1bdd01c3b2cb3550e3ac36f7f715c34db48f00f90340d3',
     nextblockhash:
@@ -26,7 +28,7 @@
 [
   {
     "hash": "c89625ce39e592dd2200755ab444866b1b9fbea8e6edc0993bddf60d27810080",
-    "confirmations": 2,
+    "confirmations": 7408,
     "size": 1469,
     "height": 475387,
     "weight": 5876,
@@ -36,8 +38,8 @@
     "version_hex": "00000000",
     "difficulty": "0",
     "merkle_root": "5fb72b46341e6901b85829cb42f3875595e073ecc753fefe568cdb8c357d7be0",
-    "chain_work": "00000001",
-    "chain_work_as_number": 1,
+    "chain_work": "00001cef",
+    "chain_work_as_number": 7407,
     "next_block_hash": "656e4fbf6c9440b29cdea35f76610f56c1f715d32b0a34f55b32485d52949dfb",
     "next_block_hash_as_number": "45878501282781452516301746663234891493844876279631822532531708049891257523707",
     "prev_block_hash": "9390b4595266d333ba1bdd01c3b2cb3550e3ac36f7f715c34db48f00f90340d3",

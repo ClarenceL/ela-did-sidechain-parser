@@ -61,7 +61,7 @@ new Promise((resolve) => {
   throw new Error(`file: ${process.argv[2]} not found`)
 })
   .then(async (jsonData: Array<any>) => {
-    console.log(jsonData)
+    // console.log(jsonData)
 
     const finalBlocks = []
 

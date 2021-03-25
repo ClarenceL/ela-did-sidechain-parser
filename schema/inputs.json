@@ -1,0 +1,30 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "definitions": {
+    "inputs": {
+      "type": "object",
+      "properties": {
+        "output_index": {
+          "type": "integer",
+          "description": "The output index number (vout) of the outpoint being spent. The first output in a transaction has an index of 0. Not present if this is a coinbase transaction."
+        },
+        "txid": {
+          "type": "string",
+          "description": "The TXID of the outpoint being spent, encoded as hex in RPC byte order. Not present if this is a coinbase transaction."
+        },
+        "txid_as_number": {
+          "type": "integer",
+          "description": "Integer representation of the transaction id."
+        },
+        "sequence": {
+          "type": "integer",
+          "description": "Used to identify special values in a tx. Currently only used in conjuncton with LockTime in transactions"
+        }
+      }
+    }
+  },
+  "type": "array",
+  "items": {
+    "$ref": "#/definitions/inputs"
+  }
+}
